@@ -453,8 +453,8 @@ setInterval(function(){
         
         // ⚖️ CÁLCULO DO IMPOSTO DE RENDA (ATIVOS)
         let irF = 0;
-        const bIR = (vencimentoBase + vAQ + rCC + vFG) - prevBase - Math.min((parseInt(document.getElementById('input-dep-ir').value) || 0) * 189.59, 607.20);
-        const bIR2 = (vencimentoBase + vAQ + rCC + vFG);
+        const bIR = (vencimentoBase + vAQ + rCC + vFG + risco) - prevBase - Math.min((parseInt(document.getElementById('input-dep-ir').value) || 0) * 189.59, 607.20);
+        const bIR2 = (vencimentoBase + vAQ + rCC + vFG + risco);
         let irC = bIR > 4664.68 ? (bIR * 0.275) - 908.73 : bIR > 3751.05 ? (bIR * 0.225) - 675.49 : bIR > 2826.65 ? (bIR * 0.15) - 394.16 : bIR > 2428.80 ? (bIR * 0.075) - 182.16 : 0;
         irF = bIR2 <= 5000 ? 0 : bIR2 > 7350 ? Math.max(irC, 0) : Math.max(irC - (978.62 - (0.133145 * bIR2)), 0);
 
